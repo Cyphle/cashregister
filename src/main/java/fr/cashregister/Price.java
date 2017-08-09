@@ -1,29 +1,42 @@
 package fr.cashregister;
 
-public class Price {
-    private final double amount;
+final class Price {
+  private final double amount;
 
-    public Price(double amount) {
-        this.amount = amount;
-    }
+  static Price valueOf(double amount) {
+    return new Price(amount);
+  }
 
-    public double getAmount() {
-        return amount;
-    }
+  private Price(double amount) {
+    this.amount = amount;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+  public double getAmount() {
+    return amount;
+  }
 
-        Price price = (Price) o;
+  public Price multiplyBy(double quantity) {
+    return valueOf(amount * quantity);
+  }
 
-        return Double.compare(price.amount, amount) == 0;
-    }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Price price = (Price) o;
+    return Double.compare(price.amount, amount) == 0;
+  }
 
-    @Override
-    public int hashCode() {
-        long temp = Double.doubleToLongBits(amount);
-        return (int) (temp ^ (temp >>> 32));
-    }
+  @Override
+  public int hashCode() {
+    long temp = Double.doubleToLongBits(amount);
+    return (int) (temp ^ (temp >>> 32));
+  }
+
+  @Override
+  public String toString() {
+    return "Price{" +
+        "amount=" + amount +
+        '}';
+  }
 }
