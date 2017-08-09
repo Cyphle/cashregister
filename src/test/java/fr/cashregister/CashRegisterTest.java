@@ -7,9 +7,9 @@ public class CashRegisterTest {
     @Test
     public void should_calculate_total_bill_when_giving_price_and_quantity() {
         CashRegister cashRegister = new CashRegister();
-        double price = 1.20;
+        Price price = new Price(1.20);
         double quantity = 1;
-        double total = cashRegister.total(price, quantity);
-        assertThat(total).isEqualTo(1.20);
+        Price total = cashRegister.total(price, quantity);
+        assertThat(total).isEqualTo(new Price(1.20));
     }
 }
