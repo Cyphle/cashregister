@@ -11,12 +11,8 @@ final class Price {
     this.amount = amount;
   }
 
-  public double getAmount() {
-    return amount;
-  }
-
-  public Price multiplyBy(double quantity) {
-    return valueOf(amount * quantity);
+  public Price multiplyBy(Quantity quantity) {
+    return valueOf(quantity.multiplyBy(amount));
   }
 
   @Override
