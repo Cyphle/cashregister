@@ -1,7 +1,7 @@
 package fr.cashregister;
 
 public class Quantity {
-  private double value;
+  private final double value;
 
   public static Quantity valueOf(double value) {
     return new Quantity(value);
