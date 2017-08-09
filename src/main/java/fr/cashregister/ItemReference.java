@@ -1,17 +1,13 @@
 package fr.cashregister;
 
 public class ItemReference {
-  private String itemCode;
-  private Price unitPrice;
+  private final String itemCode;
+  private final Price unitPrice;
   static ReferenceBuilder aReference() { return new ReferenceBuilder(); }
 
   public ItemReference(String itemCode, Price unitPrice) {
     this.itemCode = itemCode;
     this.unitPrice = unitPrice;
-  }
-
-  public String getItemCode() {
-    return itemCode;
   }
 
   public Price getUnitPrice() {

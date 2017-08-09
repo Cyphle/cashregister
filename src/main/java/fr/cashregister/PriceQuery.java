@@ -1,8 +1,7 @@
 package fr.cashregister;
-import java.util.Arrays;
 
 public class PriceQuery {
-  private ItemReference[] itemItemReferences;
+  private final ItemReference[] itemItemReferences;
 
   public PriceQuery(ItemReference... itemItemReferences) {
     this.itemItemReferences = itemItemReferences;
