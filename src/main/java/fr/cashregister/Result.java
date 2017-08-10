@@ -1,5 +1,7 @@
 package fr.cashregister;
 
+import java.util.function.UnaryOperator;
+
 abstract class Result {
   static Result found(Price price) {
     return new Found(price);
@@ -9,12 +11,19 @@ abstract class Result {
     return new NotFound(itemCode);
   }
 
+  abstract Result map(UnaryOperator<Price> unaryOperator);
+
   private static class Found extends Result {
     private Price price;
 
     public Found(Price price) {
       super();
       this.price = price;
+    }
+
+    @Override
+    Result map(UnaryOperator<Price> unaryOperator) {
+      return new Found(unaryOperator.apply(price));
     }
 
     @Override
@@ -39,6 +48,11 @@ abstract class Result {
     public NotFound(String itemCode) {
       super();
       this.itemCode = itemCode;
+    }
+
+    @Override
+    Result map(UnaryOperator<Price> unaryOperator) {
+      return new NotFound(itemCode);
     }
 
     @Override
