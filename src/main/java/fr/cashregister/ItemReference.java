@@ -14,7 +14,7 @@ public class ItemReference {
     return unitPrice;
   }
 
-  public boolean mathSoughtItemCode(String soughtItemCode) {
+  public boolean matchSoughtItemCode(String soughtItemCode) {
     return itemCode.equals(soughtItemCode);
   }
 
