@@ -27,9 +27,7 @@ public class PriceQuery {
 
   public <R, T> R reduce(R identity, BiFunction<R, T, R> f, Iterable<T> elements) {
     R result = identity;
-    for (T element : elements) {
-      result = f.apply(result, element);
-    }
+    for (T element : elements) result = f.apply(result, element);
     return result;
   }
 
